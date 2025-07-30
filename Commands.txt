@@ -1,0 +1,5 @@
+Command for Node Version
+node -v
+
+Command for NPM Version
+npm -v
