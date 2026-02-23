@@ -422,14 +422,3 @@ Most interviewers test:
 * How migrations work?
 * How to handle transaction failures?
 * How to avoid N+1 problem?
-
----
-
-If you want, I can now give you:
-
-* ✅ A **daily study plan (30-day structured plan)**
-* ✅ Prisma interview questions
-* ✅ A hands-on mini project roadmap
-* ✅ Prisma vs Mongoose comparison (important for MERN interviews)
-
-Tell me what you want next.
