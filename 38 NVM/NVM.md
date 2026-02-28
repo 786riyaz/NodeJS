@@ -1,4 +1,8 @@
-# NVM (Node Version Manager) – Revision Notes
+Here is your **updated and cleaned complete Markdown file**, properly structured and corrected (including fixing incorrect commands like `new alias default 22` → `nvm alias default 22`).
+
+---
+
+# NVM (Node Version Manager) – Complete Revision Notes
 
 ---
 
@@ -10,20 +14,21 @@
 * Switch between different Node versions
 * Manage Node versions per project or system-wide
 
-> On Windows, we use **NVM for Windows** (different from Linux/macOS NVM).
+> On Windows, we use **NVM for Windows**, which is different from the Linux/macOS version.
 
 ---
 
 ## 2️⃣ Why Do We Need NVM?
 
-In real projects:
+In real-world development:
 
-* Project A may require Node 18
-* Project B may require Node 20
-* Some legacy projects may require Node 14
+* Project A may require **Node 18**
+* Project B may require **Node 20**
+* Legacy systems may require **Node 14**
+* Latest Next.js versions may require **Node 20+**
 
-Without NVM → You must uninstall and reinstall Node repeatedly ❌
-With NVM → You can switch versions instantly ✅
+Without NVM → You must uninstall/reinstall Node repeatedly ❌
+With NVM → You switch instantly using a single command ✅
 
 ---
 
@@ -31,8 +36,8 @@ With NVM → You can switch versions instantly ✅
 
 ### Step 1: Download
 
-Download **`nvm-setup.exe`** from:
-Official NVM for Windows GitHub repository.
+Download **`nvm-setup.exe`** from the official
+NVM for Windows GitHub repository.
 
 ### Step 2: Install
 
@@ -48,131 +53,148 @@ Official NVM for Windows GitHub repository.
 nvm version
 ```
 
-✔ If installed correctly, it shows the installed NVM version.
-
-Example:
+Example output:
 
 ```
 1.1.12
 ```
 
+If you see a version number → Installation successful ✅
+
 ---
 
-## 5️⃣ Installing Node Versions Using NVM
-
-### Install Latest Node 18
+## 5️⃣ Check Available Node Versions
 
 ```bash
-nvm install 18
+nvm list available
 ```
 
-This installs the latest available 18.x version.
+This shows all Node versions that can be installed.
+
+---
+
+## 6️⃣ Install Node Versions Using NVM
+
+### Install Latest Version of a Major Release
+
+```bash
+nvm install 22
+```
+
+Installs latest 22.x.x version.
 
 ---
 
 ### Install Specific Version
 
 ```bash
-nvm install 18.20.4
+nvm install 20.18.0
 ```
 
-This installs exactly Node version **18.20.4**
+Installs exactly **Node 20.18.0**
 
 ---
 
-## 6️⃣ Switching Node Version
-
-After installing, activate a version:
-
-```bash
-nvm use 18
-```
-
-OR
-
-```bash
-nvm use 18.20.4
-```
-
-This makes the selected version active globally in your system.
-
----
-
-## 7️⃣ Check Active Node Version
-
-```bash
-node -v
-```
-
-Example output:
-
-```
-v18.20.4
-```
-
-This confirms that Node 18 is currently active.
-
----
-
-## 8️⃣ Important NVM Commands (Revision Table)
-
-| Command                   | Purpose                      |
-| ------------------------- | ---------------------------- |
-| `nvm version`             | Check NVM version            |
-| `nvm install <version>`   | Install Node version         |
-| `nvm use <version>`       | Switch Node version          |
-| `nvm list`                | Show installed Node versions |
-| `nvm uninstall <version>` | Remove Node version          |
-| `node -v`                 | Check active Node version    |
-| `npm -v`                  | Check npm version            |
-
----
-
-## 9️⃣ How NVM Works Internally (Concept)
-
-* NVM installs Node versions in a separate directory
-* It switches versions by updating:
-
-  * PATH environment variable
-  * Symbolic links (internally)
-* Only one Node version is active at a time
-
----
-
-## 🔟 Common Interview Questions
-
-### Q1: What is NVM?
-
-A tool to manage multiple Node.js versions.
-
-### Q2: Difference between `nvm install 18` and `nvm install 18.20.4`?
-
-* `18` → installs latest 18.x version
-* `18.20.4` → installs exact version
-
-### Q3: How to check installed Node versions?
+## 7️⃣ View Installed Versions
 
 ```bash
 nvm list
 ```
 
-### Q4: Does NVM remove old Node versions automatically?
+Shows all installed Node versions.
 
-❌ No. You must uninstall manually:
+Example:
+
+```
+  * 22.0.0 (Currently using 64-bit)
+    20.18.0
+```
+
+`*` indicates the active version.
+
+---
+
+## 8️⃣ Switch Node Version
+
+Activate a version:
 
 ```bash
-nvm uninstall <version>
+nvm use 22
+```
+
+OR
+
+```bash
+nvm use 20.18.0
+```
+
+This changes the globally active Node version.
+
+---
+
+## 9️⃣ Set Default Node Version
+
+To automatically use a version when terminal opens:
+
+```bash
+nvm alias default 22
+```
+
+Now every new terminal session will use Node 22.
+
+---
+
+## 🔟 Verify Active Node & NPM
+
+```bash
+node -v
+npm -v
+```
+
+Example:
+
+```
+v22.0.0
+10.8.1
 ```
 
 ---
 
-## 11️⃣ Common Issues & Fixes
+## 1️⃣1️⃣ Important NVM Commands (Quick Reference)
 
-### ❌ 'nvm is not recognized'
+| Command                       | Purpose                      |
+| ----------------------------- | ---------------------------- |
+| `nvm version`                 | Check NVM version            |
+| `nvm list`                    | Show installed Node versions |
+| `nvm list available`          | Show installable versions    |
+| `nvm install <version>`       | Install Node version         |
+| `nvm use <version>`           | Switch Node version          |
+| `nvm uninstall <version>`     | Remove Node version          |
+| `nvm alias default <version>` | Set default Node version     |
+| `node -v`                     | Check active Node version    |
+| `npm -v`                      | Check npm version            |
+
+---
+
+## 1️⃣2️⃣ How NVM Works Internally (Conceptual Understanding)
+
+* NVM installs each Node version in a separate directory.
+* It modifies:
+
+  * The **PATH environment variable**
+  * Symbolic links internally
+* Only one Node version can be active at a time.
+* npm version automatically matches the selected Node version.
+
+---
+
+## 1️⃣3️⃣ Common Errors & Fixes
+
+### ❌ `nvm is not recognized`
 
 ✔ Restart terminal
 ✔ Check installation path
-✔ Ensure NVM added to system PATH
+✔ Verify NVM added to system PATH
 
 ---
 
@@ -188,30 +210,102 @@ nvm use <version>
 
 ---
 
-## 12️⃣ Best Practices
+### ❌ Next.js requires newer Node
 
-✔ Use project-specific Node version
-✔ Always check `node -v` after switching
-✔ Use LTS versions for production
-✔ Avoid installing Node directly when using NVM
+Error example:
+
+```
+Node.js version ">=20.9.0" is required
+```
+
+Fix:
+
+```bash
+nvm install 22
+nvm use 22
+```
 
 ---
 
-# ✅ Quick Revision Summary
+## 1️⃣4️⃣ Interview Questions
+
+### Q1: What is NVM?
+
+A version manager that allows multiple Node.js installations and switching between them.
+
+---
+
+### Q2: Difference between:
+
+```
+nvm install 22
+```
+
+and
+
+```
+nvm install 20.18.0
+```
+
+* `22` → installs latest 22.x version
+* `20.18.0` → installs exact version
+
+---
+
+### Q3: How to check installed Node versions?
+
+```bash
+nvm list
+```
+
+---
+
+### Q4: Does NVM remove old versions automatically?
+
+❌ No
+You must manually remove them:
+
+```bash
+nvm uninstall <version>
+```
+
+---
+
+## 1️⃣5️⃣ Best Practices
+
+✔ Use LTS versions for production
+✔ Match Node version with project requirements
+✔ Check `node -v` after switching
+✔ Do not install Node directly when using NVM
+✔ Set a default version for consistency
+
+---
+
+# ✅ Practical Command Flow Example
+
+```bash
+nvm version
+nvm list available
+nvm install 22
+nvm install 20.18.0
+nvm list
+nvm use 22
+node -v
+npm -v
+nvm alias default 22
+```
+
+---
+
+# 🚀 Final Quick Revision Summary
 
 ```
 Install NVM → nvm-setup.exe
-Check version → nvm version
-Install Node → nvm install 18
-Install specific → nvm install 18.20.4
-Switch version → nvm use 18
+Check NVM → nvm version
+See available → nvm list available
+Install Node → nvm install 22
+Install specific → nvm install 20.18.0
+Switch version → nvm use 22
+Set default → nvm alias default 22
 Verify → node -v
 ```
-
----
-
-If you want, I can also create:
-
-* 🔹 Short one-page interview revision sheet
-* 🔹 NVM + npm + npx combined revision notes
-* 🔹 Markdown file version for your personal notes
