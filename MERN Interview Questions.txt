@@ -1,0 +1,37 @@
+🚀 Recently appeared for a MERN / Full Stack interview (around 5 years experience level) and wanted to share the exact questions I was asked.
+
+Here are the questions:
+
+1. How to maintain authentication and authorization in a micro-frontends application?
+ - Architecture considerations
+ - Managing roles across micro-apps
+2. What is the event loop in Node.js and how does it handle events?
+3. How to optimize and make APIs efficient in Node.js?
+4. How to handle large response sizes (50–100k records) in Node.js?
+5. Can we use multiple middleware in Node.js? Give examples.
+6. What parameters are passed in middleware?
+ - What does next() do?
+7. What are worker threads?
+8. How would you design a system that can handle millions of users?
+9. Can MongoDB handle millions of users and queries?
+10. How to handle high traffic in Node.js?
+ - Handling server failures
+11. What is the cluster module in Node.js?
+ - How to implement it
+12. What is horizontal scaling?
+13. GraphQL vs REST APIs
+14. Features in GraphQL not present in REST
+15. Real DOM vs Virtual DOM and how React uses it
+16. How to optimize a React application?
+17. What is dynamic loading of components in React?
+18. useCallback vs useMemo
+ - What do they return?
+19. Rules of React hooks
+20. What is a vector database?
+21. How to store embeddings in MongoDB?
+22. Evaluation metrics for generative models
+23. Handling missing or noisy data in datasets
+
+🔑 Key insights:
+- For ~5 years experience, the expectation is strong understanding of scalability, system design, and performance along with solid fundamentals of React and Node.js.
+- Interviews are clearly moving beyond basics, focusing more on real-world problem solving, high traffic handling, and modern concepts like micro-frontends and AI integrations.
