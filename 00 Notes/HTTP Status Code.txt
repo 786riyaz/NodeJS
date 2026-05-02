@@ -1,0 +1,355 @@
+HTTP response status codes are standardized by the **Internet Engineering Task Force** under the **RFC 9110**. They are grouped into **5 classes (1xx–5xx)** based on response type.
+
+I’ll break this down systematically so you can actually *use* them in real backend/frontend work—not just memorize numbers.
+
+---
+
+# 🔵 1xx — Informational (Rare in everyday dev)
+
+These mean: *request received, processing continues*
+
+### Common ones:
+
+* **100 Continue**
+
+  * Client should continue sending request body
+  * Used in large uploads
+
+* **101 Switching Protocols**
+
+  * Server switches protocol (e.g., HTTP → WebSocket)
+
+👉 Used in:
+
+* streaming
+* WebSocket handshake
+
+---
+
+# 🟢 2xx — Success (Most important in APIs)
+
+### 200 OK
+
+* Standard success response
+* Used for **GET, PUT, PATCH**
+
+```json
+{ "message": "Success" }
+```
+
+---
+
+### 201 Created
+
+* Resource successfully created
+* Used with **POST**
+
+```json
+{ "id": 101, "name": "User created" }
+```
+
+---
+
+### 202 Accepted
+
+* Request accepted but not completed yet
+* Used in async jobs (queues, background processing)
+
+---
+
+### 204 No Content
+
+* Success but no response body
+* Common for:
+
+  * DELETE
+  * PUT (when no data returned)
+
+---
+
+### 206 Partial Content
+
+* Used for:
+
+  * file streaming
+  * video/audio chunks
+
+---
+
+# 🟡 3xx — Redirection
+
+### 301 Moved Permanently
+
+* Permanent redirect
+* SEO important
+
+---
+
+### 302 Found
+
+* Temporary redirect
+
+---
+
+### 304 Not Modified
+
+* Used with caching
+* Client should use cached version
+
+👉 Example:
+
+```http
+If-None-Match / If-Modified-Since
+```
+
+---
+
+### 307 Temporary Redirect
+
+* Same as 302 but **method is preserved**
+
+---
+
+### 308 Permanent Redirect
+
+* Same as 301 but **method is preserved**
+
+---
+
+# 🔴 4xx — Client Errors (VERY IMPORTANT)
+
+These mean: **client made a mistake**
+
+---
+
+### 400 Bad Request
+
+* Invalid request format / validation error
+
+---
+
+### 401 Unauthorized
+
+* Authentication required or failed
+* Missing/invalid token
+
+---
+
+### 403 Forbidden
+
+* Authenticated but not allowed
+
+---
+
+### 404 Not Found
+
+* Resource doesn’t exist
+
+---
+
+### 405 Method Not Allowed
+
+* Wrong HTTP method used
+
+---
+
+### 406 Not Acceptable
+
+* Server can't return requested format
+
+---
+
+### 408 Request Timeout
+
+* Client took too long
+
+---
+
+### 409 Conflict
+
+* Data conflict
+* Example:
+
+  * duplicate email
+
+---
+
+### 410 Gone
+
+* Resource permanently deleted
+
+---
+
+### 411 Length Required
+
+* Missing `Content-Length`
+
+---
+
+### 413 Payload Too Large
+
+* File too big
+
+---
+
+### 415 Unsupported Media Type
+
+* Wrong content-type
+
+```http
+Content-Type: application/xml (but server expects JSON)
+```
+
+---
+
+### 422 Unprocessable Entity
+
+* Validation failed (VERY COMMON in APIs)
+
+```json
+{
+  "error": "Email already exists"
+}
+```
+
+---
+
+### 429 Too Many Requests
+
+* Rate limiting
+* Example:
+
+  * API limit exceeded
+
+---
+
+# ⚫ 5xx — Server Errors
+
+These mean: **server failed**
+
+---
+
+### 500 Internal Server Error
+
+* Generic error
+* Something broke on server
+
+---
+
+### 501 Not Implemented
+
+* Endpoint not supported
+
+---
+
+### 502 Bad Gateway
+
+* Invalid response from upstream server
+
+---
+
+### 503 Service Unavailable
+
+* Server overloaded / down
+
+---
+
+### 504 Gateway Timeout
+
+* Upstream server didn’t respond
+
+---
+
+### 505 HTTP Version Not Supported
+
+* Protocol version issue
+
+---
+
+# 💡 Real Backend Mapping (VERY IMPORTANT)
+
+Here’s how you actually use them in Node/Express:
+
+```js
+// GET success
+res.status(200).json(data);
+
+// CREATE
+res.status(201).json(newUser);
+
+// DELETE
+res.status(204).send();
+
+// BAD REQUEST
+res.status(400).json({ error: "Invalid input" });
+
+// UNAUTHORIZED
+res.status(401).json({ error: "Token missing" });
+
+// FORBIDDEN
+res.status(403).json({ error: "Access denied" });
+
+// NOT FOUND
+res.status(404).json({ error: "User not found" });
+
+// SERVER ERROR
+res.status(500).json({ error: "Something went wrong" });
+```
+
+---
+
+# 🔥 Interview-Level Insight (Important)
+
+### Difference: 401 vs 403
+
+* **401** → Not logged in
+* **403** → Logged in but no permission
+
+---
+
+### 200 vs 201
+
+* **200** → already exists / fetched
+* **201** → newly created
+
+---
+
+### 400 vs 422
+
+* **400** → malformed request
+* **422** → valid format but invalid data
+
+---
+
+### 500 vs 503
+
+* **500** → bug in your code
+* **503** → server temporarily unavailable
+
+---
+
+# 🧠 Quick Mental Model
+
+| Type | Meaning      |
+| ---- | ------------ |
+| 1xx  | Processing   |
+| 2xx  | Success      |
+| 3xx  | Redirect     |
+| 4xx  | Client error |
+| 5xx  | Server error |
+
+---
+
+# 🚀 Pro Tip (Industry Practice)
+
+In modern APIs (especially REST):
+
+* Most used:
+
+  * 200, 201, 204
+  * 400, 401, 403, 404, 422
+  * 500
+
+👉 You don’t need to memorize all 50+ codes
+👉 Focus on **correct usage in API design**
+
