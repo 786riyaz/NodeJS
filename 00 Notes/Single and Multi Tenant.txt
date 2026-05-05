@@ -1,0 +1,19 @@
+## Thick Client
+- Processing happens locally
+- Example: Excel desktop, Photoshop
+
+## Thin Client
+- Processing happens on server
+- Example: Google Docs, ChatGPT
+
+---
+
+## Single Tenant
+- One app per customer
+- High isolation
+- Expensive
+
+## Multi-Tenant
+- One app, multiple customers
+- Shared infrastructure
+- Scalable
