@@ -11,7 +11,7 @@ const readline = require('readline');
 
   const page = await context.newPage();
 
-  await page.goto('https://wsc.cdr.bsnl.co.in/portal/');
+  await page.goto('Paste your BSNL login URL here');
 
   console.log('Manual login karo...');
   console.log('Login hone ke baad ENTER press karo');

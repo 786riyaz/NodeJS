@@ -128,7 +128,7 @@ const { chromium } = require('playwright');
   const page = await context.newPage();
 
   // Open BSNL portal
-  await page.goto('https://wsc.cdr.bsnl.co.in/portal/');
+  await page.goto('Paste Your BSNL URL Here');
 
   console.log('Manually login karo...');
   console.log('60 seconds wait start...');
@@ -280,7 +280,7 @@ Creates:
 # 6. Open Website
 
 ```js
-await page.goto('https://wsc.cdr.bsnl.co.in/portal/');
+await page.goto('BSNL URL');
 ```
 
 Explanation:
