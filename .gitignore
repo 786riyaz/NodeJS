@@ -1,6 +1,16 @@
-/node_modules
 .env
 
+# Ignore node_modules folder
+node_modules
+
+# For the current folder Every Where
+# node_modules/
+
+# For the current folder
+# /node_modules
 
 # For All the Sub Folder 
-*/node_modules
+# */node_modules
+
+# For All the Sub Folder of Sub Folder
+# **/node_modules
