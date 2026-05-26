@@ -15,3 +15,5 @@ Node JS Full Course 2025 | PostgreSQL, Prisma, Nest JS, Bun, Hono, Prometheus, G
 https://www.youtube.com/watch?v=pa9xqOnorx0
 
 What is WebHooks?
+
+what are the new features in latest node versions
