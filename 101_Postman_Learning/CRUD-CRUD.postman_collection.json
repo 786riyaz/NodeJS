@@ -1,0 +1,173 @@
+{
+  "info": {
+    "_postman_id": "24ac9e02-6439-46ab-b371-5c326a66f3ec",
+    "name": "CRUD-CRUD",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "24594422",
+    "_collection_link": "https://go.postman.co/collection/24594422-24ac9e02-6439-46ab-b371-5c326a66f3ec?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Basic Operation",
+      "item": [
+        {
+          "name": "Create Record",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Arbaz Shaikh\",\r\n    \"email\":\"arbaz.shaikh@gmail.com\"\r\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://crudcrud.com/api/{{ResourceID}}/appointment",
+              "protocol": "https",
+              "host": [
+                "crudcrud",
+                "com"
+              ],
+              "path": [
+                "api",
+                "{{ResourceID}}",
+                "appointment"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Record",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"RiyazKhan\",\r\n    \"email\":\"moh.riyazpathan@gmail.com\"\r\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://crudcrud.com/api/4defaa0a99324023b2fdeee50e44c558/appointment/6a4a758d3dd43c03e8912014",
+              "protocol": "https",
+              "host": [
+                "crudcrud",
+                "com"
+              ],
+              "path": [
+                "api",
+                "4defaa0a99324023b2fdeee50e44c558",
+                "appointment",
+                "6a4a758d3dd43c03e8912014"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Records",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://crudcrud.com/api/4defaa0a99324023b2fdeee50e44c558/appointment",
+              "protocol": "https",
+              "host": [
+                "crudcrud",
+                "com"
+              ],
+              "path": [
+                "api",
+                "4defaa0a99324023b2fdeee50e44c558",
+                "appointment"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Record",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://crudcrud.com/api/4defaa0a99324023b2fdeee50e44c558/appointment/6a4a99453dd43c03e891201b",
+              "protocol": "https",
+              "host": [
+                "crudcrud",
+                "com"
+              ],
+              "path": [
+                "api",
+                "4defaa0a99324023b2fdeee50e44c558",
+                "appointment",
+                "6a4a99453dd43c03e891201b"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Record",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://crudcrud.com/api/4defaa0a99324023b2fdeee50e44c558/appointment/6a4a758d3dd43c03e8912014",
+              "protocol": "https",
+              "host": [
+                "crudcrud",
+                "com"
+              ],
+              "path": [
+                "api",
+                "4defaa0a99324023b2fdeee50e44c558",
+                "appointment",
+                "6a4a758d3dd43c03e8912014"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "ResourceID",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
